@@ -22,7 +22,14 @@ class DefaultController extends PublicController
         extract($this->getCatalogData($item, $parent));
 
         // Задаём мета теги
-        $this->setMetaData($pageData);
+        if (!$this->view->hasMetaData()) {
+            $this->view->setMetaData(
+                $pageData->name,
+                $pageData->meta_title,
+                $pageData->meta_description,
+                $pageData->text_full
+            );
+        }
 
         $view = !empty($item) ? 'item' : 'index';
 
@@ -41,7 +48,14 @@ class DefaultController extends PublicController
         $pageData = Catalog::find()->where('url = :url', ['url' => 'online'])->one();
 
         // Задаём мета теги
-        $this->setMetaData($pageData);
+        if (!$this->view->hasMetaData()) {
+            $this->view->setMetaData(
+                $pageData->name,
+                $pageData->meta_title,
+                $pageData->meta_description,
+                $pageData->text_full
+            );
+        }
 
         $items = $pageData->getChildren();
 
