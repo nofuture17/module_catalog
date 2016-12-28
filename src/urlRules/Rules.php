@@ -6,7 +6,7 @@
  * Time: 21:06
  */
 
-namespace app\modules\catalog\urlRules;
+namespace kupi_othodov_ru\module_catalog\urlRules;
 
 use yii\web\UrlRuleInterface;
 use yii\base\Object;

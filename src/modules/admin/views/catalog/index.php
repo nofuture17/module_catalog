@@ -5,7 +5,7 @@ use yii\grid\GridView;
 use yii\bootstrap\Tabs;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\catalog\models\CatalogSearch */
+/* @var $searchModel kupi_othodov_ru\module_catalog\models\CatalogSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 ?>

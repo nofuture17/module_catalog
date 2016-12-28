@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\catalog\modules\admin;
+namespace kupi_othodov_ru\module_catalog\modules\admin;
 
 /**
  * catalog module definition class
@@ -12,7 +12,7 @@ class Module extends \amd_php_dev\yii2_components\modules\Admin
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\catalog\modules\admin\controllers';
+    public $controllerNamespace = 'kupi_othodov_ru\module_catalog\modules\admin\controllers';
 
     /**
      * @inheritdoc

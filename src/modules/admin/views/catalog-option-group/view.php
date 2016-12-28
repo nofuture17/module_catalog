@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\CatalogOptionGroup */
+/* @var $model kupi_othodov_ru\module_catalog\models\CatalogOptionGroup */
 
 ?>
 <div class="catalog-option-group-view">

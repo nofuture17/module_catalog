@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\catalog\controllers;
+namespace kupi_othodov_ru\module_catalog\controllers;
 
-use app\components\controllers\PublicController;
-use app\modules\catalog\models\Catalog;
+use amd_php_dev\yii2_components\controllers\PublicController;
+use kupi_othodov_ru\module_catalog\models\Catalog;
 
 /**
  * Default controller for the `catalog` module

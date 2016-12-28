@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\Manufacture */
+/* @var $model kupi_othodov_ru\module_catalog\models\Manufacture */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -108,7 +108,7 @@ use yii\widgets\ActiveForm;
 
     <?= \amd_php_dev\yii2_components\widgets\form\SmartInput::widget([
         'model'     => $model,
-        'attribute' => \app\modules\catalog\models\Manufacture::ATTR_CATALOGS,
+        'attribute' => \kupi_othodov_ru\module_catalog\models\Manufacture::ATTR_CATALOGS,
         'label'     => true,
         'form'      => $form,
     ]); ?>

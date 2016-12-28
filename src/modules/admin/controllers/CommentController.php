@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\catalog\modules\admin\controllers;
+namespace kupi_othodov_ru\module_catalog\modules\admin\controllers;
 
 use Yii;
-use app\modules\catalog\models\Comment;
-use app\modules\catalog\models\CommentSearch;
+use kupi_othodov_ru\module_catalog\models\Comment;
+use kupi_othodov_ru\module_catalog\models\CommentSearch;
 use amd_php_dev\yii2_components\controllers\AdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

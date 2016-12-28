@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\catalog\modules\admin\controllers;
+namespace kupi_othodov_ru\module_catalog\modules\admin\controllers;
 
 use Yii;
-use app\modules\catalog\models\CatalogOptionGroup;
-use app\modules\catalog\models\CatalogOptionGroupSearch;
+use kupi_othodov_ru\module_catalog\models\CatalogOptionGroup;
+use kupi_othodov_ru\module_catalog\models\CatalogOptionGroupSearch;
 use amd_php_dev\yii2_components\controllers\AdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

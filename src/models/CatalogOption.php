@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\catalog\models;
+namespace kupi_othodov_ru\module_catalog\models;
 
 use amd_php_dev\yii2_components\widgets\form\SmartInput;
 use Yii;

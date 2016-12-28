@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\CatalogOption */
+/* @var $model kupi_othodov_ru\module_catalog\models\CatalogOption */
 
 ?>
 <div class="catalog-option-update">

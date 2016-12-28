@@ -1,9 +1,9 @@
 <?php
 
 use yii\db\Migration;
-use app\modules\catalog\models\Catalog;
-use app\modules\catalog\models\CatalogOptionGroup;
-use app\modules\catalog\models\CatalogOption;
+use kupi_othodov_ru\module_catalog\models\Catalog;
+use kupi_othodov_ru\module_catalog\models\CatalogOptionGroup;
+use kupi_othodov_ru\module_catalog\models\CatalogOption;
 
 class m161212_124257_add_data extends Migration
 {

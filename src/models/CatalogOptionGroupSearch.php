@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\catalog\models;
+namespace kupi_othodov_ru\module_catalog\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\catalog\models\CatalogOptionGroup;
+use kupi_othodov_ru\module_catalog\models\CatalogOptionGroup;
 
 /**
- * CatalogOptionGroupSearch represents the model behind the search form about `app\modules\catalog\models\CatalogOptionGroup`.
+ * CatalogOptionGroupSearch represents the model behind the search form about `kupi_othodov_ru\module_catalog\models\CatalogOptionGroup`.
  */
 class CatalogOptionGroupSearch extends CatalogOptionGroup
 {

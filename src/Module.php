@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\catalog;
+namespace kupi_othodov_ru\module_catalog;
 
 /**
  * catalog module definition class
@@ -11,10 +11,19 @@ class Module extends \amd_php_dev\yii2_components\modules\Module
 
     use \amd_php_dev\yii2_components\modules\ComposerModuleTrait;
 
+    protected $_urlRules = [
+        [
+            'rules' => [
+                ['class' => '\kupi_othodov_ru\module_catalog\urlRules\Rules']
+            ],
+            'append' => true,
+        ],
+    ];
+
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\catalog\controllers';
+    public $controllerNamespace = 'kupi_othodov_ru\module_catalog\controllers';
 
     /**
      * @inheritdoc
@@ -25,37 +34,10 @@ class Module extends \amd_php_dev\yii2_components\modules\Module
 
         $this->modules = [
             'admin' => [
-                'class' => '\app\modules\catalog\modules\admin\Module',
+                'class' => '\kupi_othodov_ru\module_catalog\modules\admin\Module',
             ],
         ];
 
         // custom initialization code goes here
     }
-
-    public function getUrlRules()
-    {
-        return array_merge(
-            parent::getUrlRules(),
-            [
-                [
-                    'rules' => [new \app\modules\catalog\urlRules\Rules()],
-                    'append' => true,
-                ],
-            ]
-        );
-    }
-
-    //public static function getMenuItems() {
-    //    return [
-    //        'section' => 'catalog',
-    //        'items' => [
-    //            [
-    //                'label' => 'catalog',
-    //                'items' => [
-    //                    ['label' => 'label', 'url' => ['']],
-    //                ]
-    //            ]
-    //        ],
-    //    ];
-    //}
 }

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\Comment */
+/* @var $model kupi_othodov_ru\module_catalog\models\Comment */
 
 ?>
 <div class="comment-update">

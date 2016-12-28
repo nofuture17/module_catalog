@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\Catalog */
+/* @var $model kupi_othodov_ru\module_catalog\models\Catalog */
 
 ?>
 <div class="catalog-create">

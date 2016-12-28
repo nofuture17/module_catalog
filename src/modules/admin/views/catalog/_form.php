@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Tabs;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\catalog\models\Catalog */
+/* @var $model kupi_othodov_ru\module_catalog\models\Catalog */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

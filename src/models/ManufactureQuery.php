@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\catalog\models;
+namespace kupi_othodov_ru\module_catalog\models;
 
 /**
  * This is the ActiveQuery class for [[Manufacture]].
