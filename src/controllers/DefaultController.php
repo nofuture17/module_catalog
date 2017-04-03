@@ -4,6 +4,7 @@ namespace kupi_othodov_ru\module_catalog\controllers;
 
 use amd_php_dev\yii2_components\controllers\PublicController;
 use kupi_othodov_ru\module_catalog\models\Catalog;
+use kupi_othodov_ru\module_catalog\models\CatalogFactory;
 
 /**
  * Default controller for the `catalog` module
@@ -81,12 +82,8 @@ class DefaultController extends PublicController
 
         // Получить pageData из item или корневого каталога
         if (!empty($item)) {
-            $pageData = Catalog::find()
-                ->with('manufacturesRelation')
-                ->defaultScope()
-                ->andWhere('url = :url', ['url' => $item])
-                ->one();
-
+            $pageData = CatalogFactory::getItemByUrl($item);
+            
             if (empty($pageData)) {
                 $url = \yii::$app->urlManager->createUrl([
                     'catalog/default/index',
@@ -96,7 +93,7 @@ class DefaultController extends PublicController
             }
 
             if (!empty($parent) || $pageData->depth > 1) {
-                $parentItem = $pageData->getFirstParent();
+                $parentItem = CatalogFactory::getFirstParent($pageData);
 
                 if (empty($parentItem) || $parentItem->isRoot()) {
                     $url = \yii::$app->urlManager->createUrl([
@@ -121,15 +118,18 @@ class DefaultController extends PublicController
                     \yii::$app->end();
                 }
 
-                $parentItem = $pageData->parents(1)->one();
+                $parentItem = CatalogFactory::getParent($pageData, 1);
             }
         } else {
-            $pageData = Catalog::find()->roots()->one();
+            $pageData = CatalogFactory::getCatalogRoot();
         }
 
-        $items = $pageData->children(1)->defaultScope()->defaultSort()->all();
+        $items = CatalogFactory::getChildren($pageData, 1);
 
         if (!empty($parentItem)) {
+            if (empty($items)) {
+                $items = CatalogFactory::getSimilarItemsFromParent($parentItem, $pageData->id);
+            }
             array_unshift($items, $parentItem);
         }
 
