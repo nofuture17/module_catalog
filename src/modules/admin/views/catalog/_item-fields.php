@@ -103,6 +103,16 @@
     'form'      => $form,
 ]); ?>
 
+<?= \amd_php_dev\yii2_components\widgets\form\SmartInput::widget([
+    'model'     => $model,
+    'attribute' => \kupi_othodov_ru\module_catalog\models\Catalog::ATTR_IMAGES,
+    'label'     => true,
+    'form'      => $form,
+    'options'   => [
+        'action' => \yii\helpers\Url::to(['image-gallery'])
+    ]
+]); ?>
+
 <?php
     if ($model->isNewRecord || !$model->isRoot()) {
         echo
