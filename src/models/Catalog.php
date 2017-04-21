@@ -39,6 +39,7 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
 
     const ATTR_OPTIONS = 'optionValues';
     const ATTR_MANUFACTURES = 'manufactures';
+    const ATTR_IMAGES        = 'images';
 
     /**
      * @inheritdoc
@@ -71,6 +72,11 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
                 'tagValueType' => 'id',
                 'tagFrequencyAttribute' => false,
                 'tagValuesAttribute' => static::ATTR_MANUFACTURES,
+            ],
+            'imageGallery' => [
+                'class' => '\amd_php_dev\yii2_components\behaviors\GalleryManager2',
+                'valueRelation' => 'imageGalleryRelation',
+                'setableAttribute' => static::ATTR_IMAGES
             ],
         ]);
     }
@@ -144,6 +150,9 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
             case static::ATTR_OPTIONS :
                 $result = SmartInput::TYPE_OPTIONS;
                 break;
+            case static::ATTR_IMAGES :
+                $result = \amd_php_dev\yii2_components\widgets\form\SmartInput::TYPE_GALLERY_IMAGE;
+                break;
             default:
                 $result = parent::getInputType($attribute);
         }
@@ -181,6 +190,9 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
             case static::ATTR_OPTIONS :
                 $result = $result = $this->getBehavior('optionsManager');
                 break;
+            case static::ATTR_IMAGES :
+                $result = $this->getBehavior('imageGallery');
+                break;
             default:
                 $result = parent::getInputData($attribute);
         }
@@ -214,12 +226,8 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
             [['id_parent'], 'required'],
             [['url'], 'unique'],
             [[static::ATTR_OPTIONS, static::ATTR_MANUFACTURES], 'safe'],
+            [static::ATTR_IMAGES, 'safe'],
         ]);
-        /*return [
-            [['lft', 'rgt', 'depth', 'active', 'priority', 'created_at', 'updated_at', 'author'], 'integer'],
-            [['text_small', 'text_full', 'links', 'snipets'], 'string'],
-            [['name', 'name_small', 'url', 'meta_title', 'meta_keywords', 'meta_description', 'image_small', 'image_full'], 'string', 'max' => 255],
-        ];*/
     }
 
     /**
@@ -231,6 +239,7 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
             'id_parent' => 'Родитель',
             static::ATTR_MANUFACTURES => 'Производство',
             static::ATTR_OPTIONS => 'Характеристики',
+            static::ATTR_IMAGES => 'Галерея изображений'
         ]);
     }
 
@@ -293,5 +302,13 @@ class Catalog extends \amd_php_dev\yii2_components\models\Page
             ->defaultScope()
             ->defaultSort()
             ->indexBy('id');
+    }
+
+    public function getImageGalleryRelation()
+    {
+        return $this->hasMany(
+            CatalogImage::className(),
+            ['id_item' => 'id']
+        )->defaultSort();
     }
 }

@@ -35,6 +35,17 @@ class CatalogController extends AdminController
         );
     }
 
+    public function actions()
+    {
+        return [
+            'image-gallery' => [
+                'class' => '\amd_php_dev\yii2_components\actions\GalleryAction',
+                'modelClass' => Catalog::className(),
+                'galleryManagerName' => 'imageGallery',
+            ],
+        ];
+    }
+
     /**
      * Lists all Catalog models.
      * @return mixed
